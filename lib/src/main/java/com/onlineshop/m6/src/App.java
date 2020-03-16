@@ -33,10 +33,16 @@ public class App {
 
         System.out.println("Price in USD: " + total);
 
+
+
         if(!customer.getAddress().getCountry().toString().equalsIgnoreCase("US")){
             System.out.println("Hard-coded in EUR: " + converter.convert(total));
             System.out.println("From a Web Service in EUR: " + converter.convertWithWebService(total));
         }
+
+
+
+
 
         if(!customer.getCountry().equalsIgnoreCase("US")){
             // print in EUR
