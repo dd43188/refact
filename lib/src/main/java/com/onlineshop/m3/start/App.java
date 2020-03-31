@@ -30,19 +30,9 @@ public class App {
         double total1 = checkout.calculateTotal(shoppingList, "DummyVoucher", membership, address);
         System.out.println("Total price for goods: " + total1);
 
-
-
-        
-
-
-
-
         LocalDate start = now().plusDays(1);
         LocalDate end = now().plusDays(2);
 
         checkout.setDeliveryTimeWindow(start, end);
-
-
-
     }
 }

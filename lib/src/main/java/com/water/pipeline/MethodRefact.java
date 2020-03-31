@@ -1,16 +1,12 @@
-package com.water.method;
+package com.water.pipeline;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class MethodRefact {
 
@@ -51,43 +47,5 @@ public class MethodRefact {
                 .filter((fileds) -> "India".equals(fileds[1].trim()))
                 .map((fileds) -> "city:" + fileds[0].trim())
                 .collect(Collectors.toList());
-    }
-
-    public void test(Map<String, String> map) {
-        List<Person> list = map.entrySet().stream().sorted(Comparator.comparing(e -> e.getKey()))
-                .map(e -> new Person(e.getKey(), e.getValue())).collect(Collectors.toList());
-    }
-
-    public class Person {
-        public Person(String id, String name) {
-
-        }
-    }
-
-
-    public static void unmodify() {
-        long time1 = System.currentTimeMillis();
-        List<String> list = new ArrayList<>();
-        for (int i = 0; i < 1000000; i++) {
-            list.add("jiamiaohe");
-        }
-        long time2 = System.currentTimeMillis();
-        List<String> unmodify = Collections.unmodifiableList(list);
-        System.out.println("cost = " + (time2 - time1) + ", cost2 = " + (System.currentTimeMillis() - time2));
-
-    }
-
-    public class ClassA {
-
-        //other method
-
-        int c;
-        int d;
-        int e;
-        int f;
-
-        public void doSomething(int a, int b) {
-            //DO
-        }
     }
 }
