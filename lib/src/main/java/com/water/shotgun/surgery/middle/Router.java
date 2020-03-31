@@ -1,10 +1,7 @@
-package com.water.shotgun.surgery.after;
+package com.water.shotgun.surgery.middle;
 
-import com.sun.tools.javac.comp.Annotate;
 import com.water.shotgun.surgery.Const;
 
-import java.lang.annotation.Annotation;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,20 +15,7 @@ public class Router {
 
     private void initEntranceMap() {
         //ignore
-        List<Class> activityList = getActivityList();
-        for(Class itemClass  : activityList) {
-            Annotation[] annotations = itemClass.getDeclaredAnnotations();
-            if (annotations == null || annotations.length == 0) {
-                break;
-            }
-
-            for(Annotation annotate : annotations) {
-                if (annotate instanceof  ARouter) {
-                    ARouter router = (ARouter) annotate;
-                    entraceMap.put(router.path(), new TargetInfo(itemClass.getName(), Boolean.valueOf(router.webSafe())));
-                }
-            }
-        }
+        entraceMap.put(Const.VIDEO_COLLECTION, new TargetInfo(VideoConnectionActivity.class.getName(), true));
     }
 
     /**
@@ -81,7 +65,8 @@ public class Router {
     private void startActivity(String target, Map<String, String> map) {
     }
 
-    private List<Class> getActivityList() {
-        return new ArrayList<>();
+    private List<String> getActivityList() {
+        return null;
     }
+
 }
