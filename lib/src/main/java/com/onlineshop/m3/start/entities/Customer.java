@@ -10,6 +10,8 @@ public class Customer {
     public Customer(String membership, String address){
         this.membership = membership;
         this.address = address;
+
+        java.awt.Font font = null;
     }
 
     public String getMembership() {
