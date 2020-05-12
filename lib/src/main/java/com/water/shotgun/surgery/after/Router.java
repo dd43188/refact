@@ -1,8 +1,5 @@
 package com.water.shotgun.surgery.after;
 
-import com.sun.tools.javac.comp.Annotate;
-import com.water.shotgun.surgery.Const;
-
 import java.lang.annotation.Annotation;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,23 +7,23 @@ import java.util.List;
 import java.util.Map;
 
 public class Router {
+
     /**
-     * key   : host
-     * value : targetActivity
+     * key   : host value : targetActivity
      */
     Map<String, TargetInfo> entraceMap = new HashMap();
 
     private void initEntranceMap() {
         //ignore
         List<Class> activityList = getActivityList();
-        for(Class itemClass  : activityList) {
+        for (Class itemClass : activityList) {
             Annotation[] annotations = itemClass.getDeclaredAnnotations();
             if (annotations == null || annotations.length == 0) {
                 break;
             }
 
-            for(Annotation annotate : annotations) {
-                if (annotate instanceof  ARouter) {
+            for (Annotation annotate : annotations) {
+                if (annotate instanceof ARouter) {
                     ARouter router = (ARouter) annotate;
                     entraceMap.put(router.path(), new TargetInfo(itemClass.getName(), Boolean.valueOf(router.webSafe())));
                 }
@@ -38,7 +35,7 @@ public class Router {
      * weishi://videoCollection?cid=b5a1acfa12b8b90c6f5575eccdd8cf91&pre_page=1
      */
     public void entrance(String url) {
-        String host= getHostFromUrl(url);
+        String host = getHostFromUrl(url);
         TargetInfo targetInfo = entraceMap.get(host);
 
         if (targetInfo == null) {
@@ -56,6 +53,7 @@ public class Router {
     }
 
     private class TargetInfo {
+
         String target = null;
         boolean safeWithWeb = false;
 

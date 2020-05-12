@@ -1,6 +1,7 @@
 package com.water.gilded.rose;
 
 public class Item {
+
     public String name;
 
     public int sellIn;
@@ -12,6 +13,7 @@ public class Item {
         this.sellIn = sellIn;
         this.quality = quality;
     }
+
 
     @Override
     public String toString() {

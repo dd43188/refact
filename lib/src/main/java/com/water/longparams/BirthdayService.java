@@ -1,10 +1,8 @@
 package com.water.longparams;
 
-import com.sun.xml.internal.messaging.saaj.packaging.mime.MessagingException;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.Date;
-import sun.jvm.hotspot.debugger.AddressException;
 
 public class BirthdayService {
 
@@ -24,7 +22,7 @@ public class BirthdayService {
         }
     }
 
-    private void sendMessage(String smtpHost, int smtpPort, String sender, String subject, String body, String recipient) throws AddressException, MessagingException {
+    private void sendMessage(String smtpHost, int smtpPort, String sender, String subject, String body, String recipient) {
         // Create a mail session
         java.util.Properties props = new java.util.Properties();
         props.put("mail.smtp.host", smtpHost);
